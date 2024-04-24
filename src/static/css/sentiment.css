@@ -1,0 +1,28 @@
+.senti-container {
+    margin: 20px;
+    padding: 20px;
+}
+
+.sentiment-result {
+    padding: 20px 0px 20px 0px; 
+}
+
+.result-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sentis {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.sentis h4 {
+    margin: 0; 
+}
+
+.sentis h4 span {
+    margin-left: 5px; 
+}

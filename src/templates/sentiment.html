@@ -1,0 +1,42 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="senti-container">
+  <h3>Sentiment Analysis</h3>
+  <p>
+    Understand the social sentiment of your brand, product or service while
+    monitoring online conversations. Sentiment Analysis is contextual mining of
+    text which identifies and extracts subjective information in source
+    material.
+  </p>
+
+  <form action="/submit" method="get">
+    <label for="message">Enter your sentiment content here</label><br />
+    <textarea id="message" name="message" rows="10" cols="150"></textarea><br />
+    <input type="submit" class="btn btn-info" value="Submit">
+  </form>
+
+  <div class="sentiment-result">
+    {% if sentiments %}
+    <h4>Sentiments of your content is</h4>
+
+    <div class="result-box">
+      {% for key, value in sentiments.items() %} 
+        {% if key == 'Positive' %}
+            <div class="sentis">
+                <h4>Positive: 😊 {{ value }}</h4>
+            </div>
+            {% elif key == 'Neutral' %}
+            <div class="sentis">
+                <h4>Neutral: 😐 {{ value }}</h4>
+            </div>
+            {% elif key == 'Negative' %}
+            <div class="sentis">
+                <h4>Negative: 😞 {{ value }}</h4>
+            </div>
+      {% endif %}
+    </div>
+    {% endfor %} {% endif %}
+  </div>
+</div>
+
+{% endblock %}
