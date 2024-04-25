@@ -1,9 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from nlps.sentiment import sentiment_analysis
 
 app = Flask(__name__)
 
-
-sentiments = {'Positive':50,'Neutral':10,'Negative':40}
 
 @app.route("/")
 def home():
@@ -17,9 +16,11 @@ def login():
 def register():
     return render_template('register.html')
 
-@app.route("/sentiment")
+@app.route("/sentiment",methods=['GET', 'POST'])
 def sentiment():
-    return render_template('sentiment.html',sentiments=sentiments)
+    text = request.form.get('message')
+    response = sentiment_analysis(text)
+    return render_template('sentiment.html',sentiments=response.get('sentiment'))
 
 
 
