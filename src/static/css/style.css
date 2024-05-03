@@ -14,6 +14,9 @@
     height: 10vh;
 }
 .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
 }
 .menus ul {
