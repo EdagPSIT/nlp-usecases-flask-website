@@ -1,11 +1,13 @@
 <div class="navbar">
     <div class="logo">
-        <img style="margin-right: 30px;" src="{{ url_for('static',filename='nlplogo.png')}}" alt="nlplogo" width="50px" >
-        <p><a href="/" class="selected">Logo</a></p>
+        <a href="/">
+            <img style="margin-right: 30px;" src="{{ url_for('static', filename='nlplogo.png')}}" alt="nlplogo" width="50px">
+        </a>
+        <p class="selected">NLP App</a></p>
     </div>
     <div class="menus">
         <ul>
-            <li><a href="/" class="selected">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="{{ url_for('sentiment') }}">Sentiment</a></li>
             <li><a href="#">NER</a></li>
             <li><a href="#">Emotion</a></li>
