@@ -1,0 +1,43 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="senti-container">
+  <h3>Named Entity Recognition</h3>
+  <p>
+    Named Entity Recognition can identify individuals, companies, places,
+    organization, cities and other various type of entities. API can extract
+    this information from any type of text, web page or social media network.
+  </p>
+
+  <form class="form-container" action="/ner" method="post">
+    <label for="ner-text">Enter A Text</label><br />
+    <textarea id="ner-text" name="ner-text" rows="10" cols="140">{{  default_ner }}</textarea
+    ><br />
+    <input type="submit" class="btn btn-info" value="Submit" />
+  </form>
+  <div>
+    <div class="container mt-5">
+      {% if ner %}
+      <h3 class="mb-4">Named Entities</h3>
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Confidence Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in ner %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ '%.1f' | format(100*item.confidence_score) }}%</td>            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
