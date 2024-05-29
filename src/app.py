@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from nlps.sentiment import sentiment_analysis
+from nlps.sentiment import sentiment_analysis, named_entity
 
 app = Flask(__name__)
 
@@ -21,6 +21,14 @@ def sentiment():
     text = request.form.get('message')
     response = sentiment_analysis(text)
     return render_template('sentiment.html',sentiments=response.get('sentiment'))
+
+
+default_ner = "SpaceX is an aerospace manufacturer and space transport services company headquartered in California. It was founded in 2002 by entrepreneur and investor Elon Musk with the goal of reducing space transportation costs and enabling the colonization of Mars."
+@app.route("/ner",methods=['GET', 'POST'])
+def ner():
+    text = request.form.get('ner-text')
+    ner_response = named_entity(text)
+    return render_template('ner.html',ner=ner_response.get('entities'),default_ner=default_ner)
 
 
 
