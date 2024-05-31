@@ -3,10 +3,6 @@ on:
   push:
     branches:
       - "devlopment"
-  pull_request:
-    branches:
-      - "devlopment"
-
 jobs:
   Build_Push:
     runs-on: ubuntu-latest
