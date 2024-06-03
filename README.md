@@ -1,5 +1,7 @@
 ## Natural Language Processing Use Cases
 
+![Flow Diagram](flow-diagram.png)
+
 ### Sentiment Analysis
 Understand the social sentiment of your brand, product or service while monitoring online conversations. Sentiment Analysis is contextual mining of text which identifies and extracts subjective information in source material.
 
